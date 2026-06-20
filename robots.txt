@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Naver
+User-agent: Yeti
+Allow: /
+
+Sitemap: https://www.omniviewpartners.co.kr/sitemap.xml
