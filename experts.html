@@ -1,127 +1,254 @@
 <!DOCTYPE html>
-<html lang="en" translate="no" class="notranslate">
+<html lang="ko" translate="no" class="notranslate">
 <head>
   <meta charset="UTF-8" />
-  <meta name="google-site-verification" content="N0GK2L2dflp4ZC29R5pYdHIS0xIoEzLTUIxm-FCi9Ks" />
-  <meta name="naver-site-verification" content="a12ac17a938e5e76c511cf0ae47547f1369a3e0b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google" content="notranslate" />
-  <meta name="robots" content="notranslate" />
-  <title>Experts — OmniView Partners</title>
-  <meta name="description" content="OmniView Expert Match — vetted, certified coaches matched to you by data. Not a generic counselor, but your dedicated coach." />
-  <link rel="canonical" href="https://www.omniviewpartners.co.kr/experts.html" />
+  <title>코치진 — 검증된 전문가 | OmniView 옴니뷰</title>
+  <meta name="description" content="자격·경력·수퍼비전 3중 검증을 통과한 옴니뷰의 상담·코칭 전문가를 소개합니다." />
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="OmniView Partners" />
-  <meta property="og:title" content="Experts — OmniView Partners" />
-  <meta property="og:description" content="OmniView Expert Match — vetted, certified coaches matched to you by data. Not a generic counselor, but your dedicated coach." />
-  <meta property="og:url" content="https://www.omniviewpartners.co.kr/experts.html" />
-  <meta property="og:image" content="https://www.omniviewpartners.co.kr/images/stock-meeting.jpg" />
-  <meta property="og:locale" content="en_US" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Experts — OmniView Partners" />
-  <meta name="twitter:description" content="OmniView Expert Match — vetted, certified coaches matched to you by data. Not a generic counselor, but your dedicated coach." />
-  <meta name="twitter:image" content="https://www.omniviewpartners.co.kr/images/stock-meeting.jpg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/LINESeedKR/LINESeedKR.css" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{extend:{colors:{ink:'#0A1220',midnight:'#111827',slate2:'#374151',mist:'#E5E7EB',cream:'#FFF7ED'},fontFamily:{serif:['Fraunces','serif'],sans:['Inter','system-ui','sans-serif']},letterSpacing:{tightest:'-0.04em'}}}}</script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { ink:'#0A1220', midnight:'#111827', slate2:'#374151', mist:'#E5E7EB', cream:'#FFF7ED' },
+      fontFamily: { serif:['LINE Seed KR','sans-serif'], sans:['LINE Seed KR','system-ui','sans-serif'] },
+      letterSpacing: { tightest:'-0.04em' },
+    }}}
+  </script>
   <style>
-    html{scroll-behavior:smooth}body{font-family:'Inter',sans-serif;letter-spacing:-0.01em}.font-serif{font-family:'Fraunces',serif;letter-spacing:-0.02em}::selection{background:#FFF7ED;color:#0A1220}
-    .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}.reveal.in{opacity:1;transform:none}
-    .grid-lines{background-image:linear-gradient(rgba(229,231,235,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(229,231,235,.06) 1px,transparent 1px);background-size:56px 56px}
-    .eyebrow{letter-spacing:.22em}.nav-blur{backdrop-filter:saturate(180%) blur(14px)}.img-duotone{filter:grayscale(35%) contrast(1.02)}
-    .ph{background-image:linear-gradient(135deg,#374151,#0A1220)}
+    html { scroll-behavior: smooth; }
+    body { font-family:'LINE Seed KR',sans-serif; letter-spacing:-0.01em; word-break:keep-all; overflow-wrap:break-word; }
+    .font-serif { font-family:'LINE Seed KR',sans-serif; letter-spacing:-0.02em; font-weight:700 !important; }
+    ::selection { background:#0A1220; color:#FFF7ED; }
+    .reveal { opacity:0; transform:translateY(24px); transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+    .reveal.in { opacity:1; transform:none; }
+    .grid-lines { background-image:linear-gradient(rgba(229,231,235,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(229,231,235,.06) 1px,transparent 1px); background-size:56px 56px; }
+    .grid-lines-dark { background-image:linear-gradient(rgba(10,18,32,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(10,18,32,.045) 1px,transparent 1px); background-size:56px 56px; }
+    .eyebrow { letter-spacing:.22em; }
+    .nav-blur { backdrop-filter:saturate(180%) blur(14px); }
+    .img-duotone { filter:grayscale(35%) contrast(1.02); }
+    .dropdown { opacity:0; visibility:hidden; transform:translateY(6px); transition:all .2s ease; }
+    .group:hover .dropdown { opacity:1; visibility:visible; transform:none; }
   </style>
 </head>
+
 <body class="bg-cream text-ink antialiased overflow-x-hidden">
 
+  <!-- ============ NAV ============ -->
   <header id="nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
-    <div class="nav-blur transition-colors duration-300" id="nav-bg">
+    <div class="nav-blur bg-cream/90 border-b border-ink/10" id="nav-bg-light">
       <nav class="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
-        <a href="index.html" class="flex items-center gap-2.5"><img src="images/logo-light.png" alt="OmniView Partners" class="h-7 w-auto" /></a>
-        <div class="hidden lg:flex items-center gap-9 text-[13px] font-medium text-mist/70"><a href="about.html" class="hover:text-cream transition">About</a><a href="method.html" class="hover:text-cream transition">Method</a><a href="platform.html" class="hover:text-cream transition">Platform</a><a href="experts.html" class="text-cream font-semibold">Experts</a><a href="partners.html" class="hover:text-cream transition">Partners</a></div>
-        <div class="flex items-center gap-3"><a href="contact.html" class="inline-flex items-center gap-1.5 text-[13px] font-semibold bg-cream text-ink px-5 py-2.5 rounded-full hover:bg-white transition">Start free assessment</a><button id="menu-btn" class="lg:hidden text-cream p-1"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button></div>
+        <a href="index.html" class="flex items-center gap-2.5"><img src="images/logo-dark.png" alt="OmniView 옴니뷰" class="h-7 w-auto" /></a>
+        <div class="hidden lg:flex items-center gap-9 text-[14px] font-medium text-slate2">
+          <a href="about.html" class="hover:text-ink transition">About</a>
+          <div class="relative group">
+            <a href="coaching.html" class="inline-flex items-center gap-1 hover:text-ink transition">코칭 프로그램 <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg></a>
+            <div class="dropdown absolute left-0 top-full pt-3">
+              <div class="bg-white border border-mist rounded-xl shadow-xl shadow-ink/10 py-2 w-52">
+                <a href="coaching.html" class="block px-5 py-2.5 hover:bg-cream transition font-semibold text-ink">프로그램 소개</a>
+                <a href="leadership.html" class="block px-5 py-2.5 hover:bg-cream transition">리더십 개발</a>
+                <a href="mentalcare.html" class="block px-5 py-2.5 hover:bg-cream transition">조직 멘탈 케어</a>
+                <a href="career.html" class="block px-5 py-2.5 hover:bg-cream transition">커리어 코칭</a>
+                <a href="life.html" class="block px-5 py-2.5 hover:bg-cream transition">멘탈·라이프 코칭</a>
+              </div>
+            </div>
+          </div>
+          <a href="experts.html" class="hover:text-ink transition">코치진</a>
+          <a href="scope.html" class="hover:text-ink transition">진단·매칭</a>
+          <a href="contact.html" class="hover:text-ink transition">문의</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="contact.html" class="inline-flex items-center gap-1.5 text-[13px] font-semibold bg-ink text-cream px-5 py-2.5 rounded-full hover:bg-midnight transition">무료 진단 시작하기</a>
+          <button id="menu-btn" class="lg:hidden text-ink p-1" aria-label="메뉴"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+        </div>
       </nav>
     </div>
-    <div id="mobile-menu" class="lg:hidden hidden bg-midnight border-t border-white/10"><div class="px-6 py-5 flex flex-col gap-4 text-mist/80 text-sm"><a href="about.html">About</a><a href="method.html">Method</a><a href="platform.html">Platform</a><a href="experts.html">Experts</a><a href="partners.html">Partners</a></div></div>
+    <div id="mobile-menu" class="lg:hidden hidden bg-cream border-t border-ink/10">
+      <div class="px-6 py-5 flex flex-col gap-4 text-slate2 text-sm"><a href="about.html">About</a><a href="coaching.html">코칭 프로그램</a><a href="leadership.html">— 리더십 개발</a><a href="mentalcare.html">— 조직 멘탈 케어</a><a href="career.html">— 커리어 코칭</a><a href="life.html">— 멘탈·라이프 코칭</a><a href="experts.html">코치진</a><a href="scope.html">진단·매칭</a><a href="contact.html">문의</a></div>
+    </div>
   </header>
 
-  <section class="relative bg-ink text-cream overflow-hidden">
-    <div class="absolute inset-0 grid-lines opacity-70"></div>
-    <div class="absolute -top-40 -right-40 w-[680px] h-[680px] rounded-full bg-slate2/25 blur-[150px]"></div>
-    <div class="relative max-w-7xl mx-auto px-6 lg:px-8 pt-36 pb-20 lg:pt-44 lg:pb-24">
-      <p class="reveal eyebrow text-[11px] uppercase font-semibold text-mist/70 mb-5">Expert Match</p>
-      <h1 class="reveal font-serif text-5xl lg:text-7xl leading-[1.05] tracking-tightest font-medium max-w-4xl">Not a generic counselor. Your dedicated coach.</h1>
-      <p class="reveal mt-7 text-lg text-mist/65 max-w-2xl leading-relaxed">We don't give everyone the same answer. We match you — by data — with a vetted expert who fits your situation, and that one coach owns your journey.</p>
+  <!-- ============ HERO ============ -->
+  <section class="relative bg-cream pt-40 pb-20 lg:pt-48 lg:pb-24 overflow-hidden">
+    <div class="absolute inset-0 grid-lines-dark"></div>
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+      <p class="reveal eyebrow text-[12px] uppercase font-semibold text-slate2/70 mb-6">코치진</p>
+      <h1 class="reveal font-serif text-4xl sm:text-5xl lg:text-6xl leading-[1.1] tracking-tightest font-medium max-w-3xl">아무나 옴니뷰의<br>코치가 되지 않습니다</h1>
+      <p class="reveal mt-7 text-lg text-slate2 max-w-2xl leading-relaxed">자격과 경력, 수퍼비전까지 3중 검증을 통과한 전문가만 함께합니다. 배정 이후에도 정기 사례 검토와 만족도 관리가 이어집니다.</p>
     </div>
   </section>
 
-  <!-- HOW MATCHING WORKS -->
-  <section class="bg-cream py-24 lg:py-32">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="max-w-2xl reveal"><p class="eyebrow text-[11px] uppercase font-semibold text-slate2 mb-4">How Matching Works</p><h2 class="font-serif text-4xl lg:text-5xl leading-[1.1] tracking-tight">Matched by data, not chance.</h2></div>
-      <div class="mt-14 grid md:grid-cols-3 gap-6">
-        <div class="reveal rounded-2xl bg-white border border-mist p-8"><div class="w-9 h-9 rounded-lg bg-cream border border-mist grid place-items-center text-ink font-serif mb-5">①</div><h3 class="font-serif text-xl">Data-based matching</h3><p class="mt-3 text-slate2 text-[15px] leading-relaxed">We analyze your assessment results and goals to connect you with the best-fit expert.</p></div>
-        <div class="reveal rounded-2xl bg-white border border-mist p-8"><div class="w-9 h-9 rounded-lg bg-cream border border-mist grid place-items-center text-ink font-serif mb-5">②</div><h3 class="font-serif text-xl">Vetted, certified experts</h3><p class="mt-3 text-slate2 text-[15px] leading-relaxed">A coach pool verified for credentials and experience across psychology, coaching, and career.</p></div>
-        <div class="reveal rounded-2xl bg-white border border-mist p-8"><div class="w-9 h-9 rounded-lg bg-cream border border-mist grid place-items-center text-ink font-serif mb-5">③</div><h3 class="font-serif text-xl">Dedicated 1:1 ownership</h3><p class="mt-3 text-slate2 text-[15px] leading-relaxed">One coach designs and owns the entire process with you — accountable for outcomes.</p></div>
+  <!-- ============ 3중 검증 기준 ============ -->
+  <section class="bg-ink text-cream py-20 relative overflow-hidden">
+    <div class="absolute inset-0 grid-lines opacity-50"></div>
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-2xl reveal mb-12">
+        <p class="eyebrow text-[11px] uppercase font-semibold text-mist/70 mb-4">3중 검증</p>
+        <h2 class="font-serif text-3xl lg:text-4xl leading-[1.2] tracking-tight">코치 한 명이 서기까지, 세 개의 관문</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="reveal rounded-2xl bg-white/[0.04] border border-mist/10 p-8"><div class="font-serif text-lg text-mist/50 mb-4">관문 01</div><h3 class="font-serif text-2xl">자격</h3><p class="mt-3 text-mist/60 text-[15px] leading-relaxed">상담(임상·상담심리) 또는 코칭(KAC·KPC·KSC, ICF) 공인 자격 보유를 서류와 원본 대조로 확인합니다.</p></div>
+        <div class="reveal rounded-2xl bg-white/[0.04] border border-mist/10 p-8"><div class="font-serif text-lg text-mist/50 mb-4">관문 02</div><h3 class="font-serif text-2xl">경력</h3><p class="mt-3 text-mist/60 text-[15px] leading-relaxed">실제 상담·코칭 실적과 전문 분야를 검증하고, 모의 세션 심사를 통과해야 합니다.</p></div>
+        <div class="reveal rounded-2xl bg-white/[0.04] border border-mist/10 p-8"><div class="font-serif text-lg text-mist/50 mb-4">관문 03</div><h3 class="font-serif text-2xl">수퍼비전</h3><p class="mt-3 text-mist/60 text-[15px] leading-relaxed">합류 후에도 정기 사례 검토(수퍼비전)와 세션 만족도 관리를 받습니다. 기준 미달 시 배정이 중단됩니다.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- COACH GRID -->
-  <section class="bg-white py-24 lg:py-32 border-y border-mist">
+  <!-- ============ 코치 프로필 ============ -->
+  <section class="bg-white py-24 lg:py-32">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="flex items-end justify-between gap-6 reveal mb-12"><div><p class="eyebrow text-[11px] uppercase font-semibold text-slate2 mb-4">Our Coaches</p><h2 class="font-serif text-4xl lg:text-5xl leading-[1.1] tracking-tight">Meet a few of our experts.</h2></div></div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <div class="reveal group rounded-2xl overflow-hidden border border-mist bg-cream"><div class="relative aspect-square overflow-hidden"><img src="images/coach1.jpg" alt="Daniel Whitman" class="w-full h-full object-cover object-top img-duotone group-hover:scale-105 transition-transform duration-500" /></div><div class="p-5"><h4 class="font-semibold">Daniel Whitman</h4><p class="text-[13px] text-slate2 mt-0.5">Organizational psychology · Motivation</p></div></div>
-        <div class="reveal group rounded-2xl overflow-hidden border border-mist bg-cream"><div class="relative aspect-square overflow-hidden"><img src="images/coach2.jpg" alt="Adrian Cole" class="w-full h-full object-cover object-top img-duotone group-hover:scale-105 transition-transform duration-500" /></div><div class="p-5"><h4 class="font-semibold">Adrian Cole</h4><p class="text-[13px] text-slate2 mt-0.5">Relational dynamics · Attachment</p></div></div>
-        <div class="reveal group rounded-2xl overflow-hidden border border-mist bg-cream"><div class="relative aspect-square overflow-hidden"><img src="images/coach3.jpg" alt="Richard Vance" class="w-full h-full object-cover object-top img-duotone group-hover:scale-105 transition-transform duration-500" /></div><div class="p-5"><h4 class="font-semibold">Richard Vance</h4><p class="text-[13px] text-slate2 mt-0.5">Career & vision design</p></div></div>
-        <div class="reveal group rounded-2xl overflow-hidden border border-mist bg-cream"><div class="relative aspect-square overflow-hidden"><img src="images/coach4.jpg" alt="Mina Seo" class="w-full h-full object-cover object-top img-duotone group-hover:scale-105 transition-transform duration-500" /></div><div class="p-5"><h4 class="font-semibold">Mina Seo</h4><p class="text-[13px] text-slate2 mt-0.5">Lifestyle & habit design</p></div></div>
-        <div class="reveal group rounded-2xl overflow-hidden border border-mist bg-cream"><div class="relative aspect-square overflow-hidden"><img src="images/coach5.jpg" alt="Hana Yoon" class="w-full h-full object-cover object-top img-duotone group-hover:scale-105 transition-transform duration-500" /></div><div class="p-5"><h4 class="font-semibold">Hana Yoon</h4><p class="text-[13px] text-slate2 mt-0.5">Wellbeing · Resilience</p></div></div>
-        <div class="reveal group rounded-2xl overflow-hidden border border-mist bg-cream"><div class="relative aspect-square overflow-hidden"><img src="images/coach6.jpg" alt="Eric Larsson" class="w-full h-full object-cover object-top img-duotone group-hover:scale-105 transition-transform duration-500" /></div><div class="p-5"><h4 class="font-semibold">Eric Larsson</h4><p class="text-[13px] text-slate2 mt-0.5">Leadership · Performance</p></div></div>
-      </div>
-      <p class="mt-8 text-[13px] text-slate2/60">Our coaching roster is growing — the full list of coaches will be updated soon.</p>
-    </div>
-  </section>
-
-  <!-- MATCHING PROCESS BAND -->
-  <section class="bg-cream py-24 lg:py-32">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
-      <div class="reveal relative rounded-2xl overflow-hidden border border-mist shadow-xl shadow-ink/5"><img src="images/stock-consulting.jpg" alt="Coaching session" class="w-full h-[420px] object-cover img-duotone" /></div>
-      <div class="reveal">
-        <p class="eyebrow text-[11px] uppercase font-semibold text-slate2 mb-4">Quality, Guaranteed</p>
-        <h2 class="font-serif text-4xl lg:text-5xl leading-[1.1] tracking-tight">A higher bar for who coaches you.</h2>
-        <p class="mt-6 text-slate2 leading-relaxed">Every coach is screened for credentials, supervised practice, and outcomes. If the fit isn't right, we'll rematch you — your progress is what we measure.</p>
-        <div class="mt-8 grid grid-cols-3 gap-5">
-          <div><div class="font-serif text-4xl text-ink">98%</div><p class="mt-2 text-[13px] text-slate2 leading-snug">Match satisfaction</p></div>
-          <div><div class="font-serif text-4xl text-ink">100%</div><p class="mt-2 text-[13px] text-slate2 leading-snug">Credential-verified</p></div>
-          <div><div class="font-serif text-4xl text-ink">1:1</div><p class="mt-2 text-[13px] text-slate2 leading-snug">Dedicated ownership</p></div>
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 reveal">
+        <div class="max-w-2xl">
+          <p class="eyebrow text-[11px] uppercase font-semibold text-slate2 mb-4">코치진</p>
+          <h2 class="font-serif text-4xl lg:text-5xl leading-[1.15] tracking-tight">내면과 실질,<br>양쪽을 아는 사람들</h2>
         </div>
+        <p class="text-sm text-slate2 max-w-sm leading-relaxed">진단 결과에 따라 아래 코치진 중 가장 적합한 전문가가 근거와 함께 추천됩니다.</p>
+      </div>
+      <div class="mt-14 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        <article class="reveal rounded-2xl bg-cream border border-mist p-6 text-center hover:shadow-xl hover:shadow-ink/5 hover:border-slate2/40 transition">
+          <img src="images/coaches/coach5.jpg" alt="김서연 코치" class="w-28 h-28 mx-auto rounded-full object-cover" />
+          <h3 class="mt-4 font-serif text-lg">김서연 <span class="text-[13px] font-normal text-slate2">코치</span></h3>
+          <p class="mt-1 text-[12px] font-semibold text-slate2/80">연세대학교 심리학 석사</p>
+          <p class="mt-2 text-[13px] text-slate2 leading-relaxed">상담경력 9년<br>청소년·부모 상담</p>
+        </article>
+        <article class="reveal rounded-2xl bg-cream border border-mist p-6 text-center hover:shadow-xl hover:shadow-ink/5 hover:border-slate2/40 transition">
+          <img src="images/coaches/coach11.jpg" alt="이지은 코치" class="w-28 h-28 mx-auto rounded-full object-cover" />
+          <h3 class="mt-4 font-serif text-lg">이지은 <span class="text-[13px] font-normal text-slate2">코치</span></h3>
+          <p class="mt-1 text-[12px] font-semibold text-slate2/80">이화여자대학교 사회복지학과</p>
+          <p class="mt-2 text-[13px] text-slate2 leading-relaxed">사회복지사 1급<br>가족상담 8년</p>
+        </article>
+        <article class="reveal rounded-2xl bg-cream border border-mist p-6 text-center hover:shadow-xl hover:shadow-ink/5 hover:border-slate2/40 transition">
+          <img src="images/coaches/coach17.jpg" alt="박수빈 코치" class="w-28 h-28 mx-auto rounded-full object-cover" />
+          <h3 class="mt-4 font-serif text-lg">박수빈 <span class="text-[13px] font-normal text-slate2">코치</span></h3>
+          <p class="mt-1 text-[12px] font-semibold text-slate2/80">고려대학교 심리학과</p>
+          <p class="mt-2 text-[13px] text-slate2 leading-relaxed">상담심리사 2급<br>진로코칭 6년</p>
+        </article>
+        <article class="reveal rounded-2xl bg-cream border border-mist p-6 text-center hover:shadow-xl hover:shadow-ink/5 hover:border-slate2/40 transition">
+          <img src="images/coaches/coach8.jpg" alt="최나영 수석 코치" class="w-28 h-28 mx-auto rounded-full object-cover" />
+          <h3 class="mt-4 font-serif text-lg">최나영 <span class="text-[13px] font-normal text-slate2">수석 코치</span></h3>
+          <p class="mt-1 text-[12px] font-semibold text-slate2/80">서울대학교 임상심리 석사</p>
+          <p class="mt-2 text-[13px] text-slate2 leading-relaxed">정서회복 프로그램 운영 10년<br>임상심리 전문</p>
+        </article>
+        <article class="reveal rounded-2xl bg-cream border border-mist p-6 text-center hover:shadow-xl hover:shadow-ink/5 hover:border-slate2/40 transition">
+          <img src="images/coaches/coach14.jpg" alt="정유진 코치" class="w-28 h-28 mx-auto rounded-full object-cover" />
+          <h3 class="mt-4 font-serif text-lg">정유진 <span class="text-[13px] font-normal text-slate2">코치</span></h3>
+          <p class="mt-1 text-[12px] font-semibold text-slate2/80">성균관대학교</p>
+          <p class="mt-2 text-[13px] text-slate2 leading-relaxed">라이프코치<br>자기이해·습관코칭 7년</p>
+        </article>
+        <article class="reveal rounded-2xl bg-cream border border-mist p-6 text-center hover:shadow-xl hover:shadow-ink/5 hover:border-slate2/40 transition">
+          <img src="images/coaches/coach15.jpg" alt="한소희 코치" class="w-28 h-28 mx-auto rounded-full object-cover" />
+          <h3 class="mt-4 font-serif text-lg">한소희 <span class="text-[13px] font-normal text-slate2">코치</span></h3>
+          <p class="mt-1 text-[12px] font-semibold text-slate2/80">중앙대학교</p>
+          <p class="mt-2 text-[13px] text-slate2 leading-relaxed">청소년지도사<br>학습·진로코칭 5년</p>
+        </article>
+        <article class="reveal rounded-2xl bg-cream border border-mist p-6 text-center hover:shadow-xl hover:shadow-ink/5 hover:border-slate2/40 transition">
+          <img src="images/coaches/coach16.jpg" alt="윤채원 코치" class="w-28 h-28 mx-auto rounded-full object-cover" />
+          <h3 class="mt-4 font-serif text-lg">윤채원 <span class="text-[13px] font-normal text-slate2">코치</span></h3>
+          <p class="mt-1 text-[12px] font-semibold text-slate2/80">서강대학교 심리학과</p>
+          <p class="mt-2 text-[13px] text-slate2 leading-relaxed">심리상담사<br>관계회복 상담 8년</p>
+        </article>
+        <article class="reveal rounded-2xl bg-cream border border-mist p-6 text-center hover:shadow-xl hover:shadow-ink/5 hover:border-slate2/40 transition">
+          <img src="images/coaches/coach9.jpg" alt="오민지 수석 코치" class="w-28 h-28 mx-auto rounded-full object-cover" />
+          <h3 class="mt-4 font-serif text-lg">오민지 <span class="text-[13px] font-normal text-slate2">수석 코치</span></h3>
+          <p class="mt-1 text-[12px] font-semibold text-slate2/80">연세대학교 상담학 석사</p>
+          <p class="mt-2 text-[13px] text-slate2 leading-relaxed">부부·가족상담 11년<br>상담학 석사</p>
+        </article>
+        <article class="reveal rounded-2xl bg-cream border border-mist p-6 text-center hover:shadow-xl hover:shadow-ink/5 hover:border-slate2/40 transition">
+          <img src="images/coaches/coach12.jpg" alt="강다은 코치" class="w-28 h-28 mx-auto rounded-full object-cover" />
+          <h3 class="mt-4 font-serif text-lg">강다은 <span class="text-[13px] font-normal text-slate2">코치</span></h3>
+          <p class="mt-1 text-[12px] font-semibold text-slate2/80">한양대학교</p>
+          <p class="mt-2 text-[13px] text-slate2 leading-relaxed">NLP 코치<br>커리어 코칭 6년</p>
+        </article>
+        <article class="reveal rounded-2xl bg-cream border border-mist p-6 text-center hover:shadow-xl hover:shadow-ink/5 hover:border-slate2/40 transition">
+          <img src="images/coaches/coach6.jpg" alt="신예림 코치" class="w-28 h-28 mx-auto rounded-full object-cover" />
+          <h3 class="mt-4 font-serif text-lg">신예림 <span class="text-[13px] font-normal text-slate2">코치</span></h3>
+          <p class="mt-1 text-[12px] font-semibold text-slate2/80">이화여자대학교 심리학과</p>
+          <p class="mt-2 text-[13px] text-slate2 leading-relaxed">심리상담사<br>감정관리 전문 4년</p>
+        </article>
+        <article class="reveal rounded-2xl bg-cream border border-mist p-6 text-center hover:shadow-xl hover:shadow-ink/5 hover:border-slate2/40 transition">
+          <img src="images/coaches/coach7.jpg" alt="조은별 코치" class="w-28 h-28 mx-auto rounded-full object-cover" />
+          <h3 class="mt-4 font-serif text-lg">조은별 <span class="text-[13px] font-normal text-slate2">코치</span></h3>
+          <p class="mt-1 text-[12px] font-semibold text-slate2/80">고려대학교 임상심리 석사</p>
+          <p class="mt-2 text-[13px] text-slate2 leading-relaxed">임상심리사<br>불안·스트레스 상담 9년</p>
+        </article>
+        <article class="reveal rounded-2xl bg-cream border border-mist p-6 text-center hover:shadow-xl hover:shadow-ink/5 hover:border-slate2/40 transition">
+          <img src="images/coaches/coach13.jpg" alt="문아영 코치" class="w-28 h-28 mx-auto rounded-full object-cover" />
+          <h3 class="mt-4 font-serif text-lg">문아영 <span class="text-[13px] font-normal text-slate2">코치</span></h3>
+          <p class="mt-1 text-[12px] font-semibold text-slate2/80">경희대학교</p>
+          <p class="mt-2 text-[13px] text-slate2 leading-relaxed">라이프코치<br>자기계발·목표설계 7년</p>
+        </article>
+        <article class="reveal rounded-2xl bg-cream border border-mist p-6 text-center hover:shadow-xl hover:shadow-ink/5 hover:border-slate2/40 transition">
+          <img src="images/coaches/coach2.jpg" alt="서지현 수석 코치" class="w-28 h-28 mx-auto rounded-full object-cover" />
+          <h3 class="mt-4 font-serif text-lg">서지현 <span class="text-[13px] font-normal text-slate2">수석 코치</span></h3>
+          <p class="mt-1 text-[12px] font-semibold text-slate2/80">서울대학교 교육학 석사</p>
+          <p class="mt-2 text-[13px] text-slate2 leading-relaxed">대인관계 상담 12년<br>상담학 석사</p>
+        </article>
+        <article class="reveal rounded-2xl bg-cream border border-mist p-6 text-center hover:shadow-xl hover:shadow-ink/5 hover:border-slate2/40 transition">
+          <img src="images/coaches/coach18.jpg" alt="홍가은 코치" class="w-28 h-28 mx-auto rounded-full object-cover" />
+          <h3 class="mt-4 font-serif text-lg">홍가은 <span class="text-[13px] font-normal text-slate2">코치</span></h3>
+          <p class="mt-1 text-[12px] font-semibold text-slate2/80">숙명여자대학교 심리학과</p>
+          <p class="mt-2 text-[13px] text-slate2 leading-relaxed">심리상담사 1급<br>자존감 코칭 8년</p>
+        </article>
+        <article class="reveal rounded-2xl bg-cream border border-mist p-6 text-center hover:shadow-xl hover:shadow-ink/5 hover:border-slate2/40 transition">
+          <img src="images/coaches/coach10.jpg" alt="김도현 수석 코치" class="w-28 h-28 mx-auto rounded-full object-cover" />
+          <h3 class="mt-4 font-serif text-lg">김도현 <span class="text-[13px] font-normal text-slate2">수석 코치</span></h3>
+          <p class="mt-1 text-[12px] font-semibold text-slate2/80">서울대학교 심리학과</p>
+          <p class="mt-2 text-[13px] text-slate2 leading-relaxed">상담심리사<br>조직·리더십 코칭 13년</p>
+        </article>
+        <article class="reveal rounded-2xl bg-cream border border-mist p-6 text-center hover:shadow-xl hover:shadow-ink/5 hover:border-slate2/40 transition">
+          <img src="images/coaches/coach3.jpg" alt="이현우 코치" class="w-28 h-28 mx-auto rounded-full object-cover" />
+          <h3 class="mt-4 font-serif text-lg">이현우 <span class="text-[13px] font-normal text-slate2">코치</span></h3>
+          <p class="mt-1 text-[12px] font-semibold text-slate2/80">한양대학교</p>
+          <p class="mt-2 text-[13px] text-slate2 leading-relaxed">라이프코치<br>커리어 전환 코칭 7년</p>
+        </article>
+        <article class="reveal rounded-2xl bg-cream border border-mist p-6 text-center hover:shadow-xl hover:shadow-ink/5 hover:border-slate2/40 transition">
+          <img src="images/coaches/coach4.jpg" alt="최성민 코치" class="w-28 h-28 mx-auto rounded-full object-cover" />
+          <h3 class="mt-4 font-serif text-lg">최성민 <span class="text-[13px] font-normal text-slate2">코치</span></h3>
+          <p class="mt-1 text-[12px] font-semibold text-slate2/80">연세대학교 심리학과</p>
+          <p class="mt-2 text-[13px] text-slate2 leading-relaxed">임상심리사<br>스트레스 관리 10년</p>
+        </article>
+        <article class="reveal rounded-2xl bg-cream border border-mist p-6 text-center hover:shadow-xl hover:shadow-ink/5 hover:border-slate2/40 transition">
+          <img src="images/coaches/coach1.jpg" alt="Emily Carter 코치" class="w-28 h-28 mx-auto rounded-full object-cover" />
+          <h3 class="mt-4 font-serif text-lg">Emily Carter <span class="text-[13px] font-normal text-slate2">코치</span></h3>
+          <p class="mt-1 text-[12px] font-semibold text-slate2/80">Columbia University</p>
+          <p class="mt-2 text-[13px] text-slate2 leading-relaxed">ICF ACC 인증 코치<br>글로벌 커리어 코칭 8년</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="bg-white py-20 lg:py-28">
-    <div class="max-w-5xl mx-auto px-6 lg:px-8"><div class="rounded-3xl bg-ink text-cream relative overflow-hidden p-10 lg:p-16 text-center"><div class="absolute inset-0 grid-lines opacity-50"></div><div class="relative"><h2 class="font-serif text-3xl lg:text-5xl leading-[1.1] tracking-tight">Find the coach who fits you.</h2><p class="mt-5 text-mist/60 max-w-xl mx-auto">Take the free assessment and we'll recommend your best-fit expert.</p><a href="contact.html" class="mt-8 inline-flex items-center gap-2 bg-cream text-ink font-semibold px-8 py-4 rounded-full hover:bg-white transition">Get matched →</a></div></div></div>
+  <!-- ============ CTA ============ -->
+  <section class="bg-cream py-24 border-t border-mist">
+    <div class="max-w-5xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="reveal font-serif text-4xl lg:text-[2.6rem] leading-[1.15] tracking-tight">나에게 맞는 전문가, 추천받아 보세요</h2>
+      <p class="reveal mt-5 text-slate2 leading-relaxed">무료 입체 진단을 마치면, 결과에 맞는 전문가가 근거와 함께 추천됩니다.<br>첫 세션 후 맞지 않으면 무료로 교체됩니다.</p>
+      <div class="reveal mt-8 flex flex-col sm:flex-row justify-center gap-3.5">
+        <a href="contact.html" class="inline-flex justify-center items-center gap-2 bg-ink text-cream font-semibold px-8 py-4 rounded-full hover:bg-midnight transition">무료 진단 받기 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9h10M10 4l5 5-5 5"/></svg></a>
+        <a href="scope.html" class="inline-flex justify-center items-center gap-2 border border-ink/25 text-ink font-medium px-8 py-4 rounded-full hover:bg-ink/5 transition">매칭 방식 보기</a>
+      </div>
+    </div>
   </section>
 
+  <!-- ============ FOOTER ============ -->
   <footer class="bg-midnight text-cream pt-20 pb-10 border-t border-mist/10">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="grid lg:grid-cols-12 gap-12 pb-14 border-b border-mist/10">
-        <div class="lg:col-span-5"><div class="flex items-center gap-2.5 mb-5"><img src="images/logo-light.png" alt="OmniView Partners" class="h-8 w-auto" /></div><p class="text-mist/55 text-sm leading-relaxed max-w-sm">The growth partner that awakens hidden potential through data-driven self-discovery.</p></div>
+        <div class="lg:col-span-5">
+          <div class="flex items-center gap-2.5 mb-5"><img src="images/logo-light.png" alt="OmniView 옴니뷰" class="h-8 w-auto" /></div>
+          <p class="text-mist/55 text-sm leading-relaxed max-w-sm">내면(마음)과 외면(커리어·삶·성과)을 하나의 시야에 담아, 데이터라는 근거 위에서 성장을 설계하는 360° 통합 코칭.</p>
+        </div>
         <div class="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 text-sm">
-          <div><h5 class="text-mist/40 text-[12px] eyebrow uppercase mb-4">Explore</h5><ul class="space-y-2.5 text-mist/65"><li><a href="method.html" class="hover:text-cream transition">Method</a></li><li><a href="partners.html" class="hover:text-cream transition">Partners</a></li><li><a href="platform.html" class="hover:text-cream transition">Platform</a></li></ul></div>
-          <div><h5 class="text-mist/40 text-[12px] eyebrow uppercase mb-4">Company</h5><ul class="space-y-2.5 text-mist/65"><li><a href="experts.html" class="hover:text-cream transition">Experts</a></li><li><a href="about.html" class="hover:text-cream transition">About</a></li><li><a href="about.html#labs" class="hover:text-cream transition">OmniView Labs</a></li></ul></div>
-          <div><h5 class="text-mist/40 text-[12px] eyebrow uppercase mb-4">Contact</h5><ul class="space-y-2.5 text-mist/65"><li>omniview12@gmail.com</li><li>Seoul, Republic of Korea</li><li><a href="contact.html" class="text-cream hover:text-white transition">Get in touch →</a></li></ul></div>
+          <div><h5 class="text-mist/40 text-[12px] eyebrow uppercase mb-4">코칭 프로그램</h5><ul class="space-y-2.5 text-mist/65"><li><a href="leadership.html" class="hover:text-cream transition">리더십 개발</a></li><li><a href="mentalcare.html" class="hover:text-cream transition">조직 멘탈 케어</a></li><li><a href="career.html" class="hover:text-cream transition">커리어 코칭</a></li><li><a href="life.html" class="hover:text-cream transition">멘탈·라이프 코칭</a></li></ul></div>
+          <div><h5 class="text-mist/40 text-[12px] eyebrow uppercase mb-4">브랜드</h5><ul class="space-y-2.5 text-mist/65"><li><a href="about.html" class="hover:text-cream transition">About</a></li><li><a href="experts.html" class="hover:text-cream transition">코치진</a></li><li><a href="scope.html" class="hover:text-cream transition">진단·매칭</a></li><li><a href="business.html" class="hover:text-cream transition">기업 도입 안내</a></li><li><a href="personal.html" class="hover:text-cream transition">개인 플랜·요금</a></li></ul></div>
+          <div><h5 class="text-mist/40 text-[12px] eyebrow uppercase mb-4">문의</h5><ul class="space-y-2.5 text-mist/65"><li>omniview12@gmail.com</li><li>Seoul, Republic of Korea</li><li><a href="contact.html" class="text-cream hover:text-white transition">무료 진단 시작하기 →</a></li></ul></div>
         </div>
       </div>
-      <div class="pt-8 flex flex-col sm:flex-row justify-between gap-4 text-[12px] text-mist/40"><p>© 2026 OmniView Partners. All rights reserved.</p><div class="flex gap-6"><a href="privacy.html" class="hover:text-cream transition">Privacy Policy</a><a href="terms.html" class="hover:text-cream transition">Terms</a></div></div>
+      <div class="pt-8 flex flex-col sm:flex-row justify-between gap-4 text-[12px] text-mist/40"><p>© 2026 OmniView. All rights reserved.</p><p class="font-serif italic text-mist/50">한 각도가 아니라, 모든 각도에서.</p></div>
     </div>
   </footer>
+
   <script src="js/site.js"></script>
 </body>
 </html>

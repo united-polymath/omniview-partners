@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko" translate="no" class="notranslate">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>기업 코칭 — OmniView for Business | OmniView 옴니뷰</title>
+  <meta name="description" content="리더십 개발, 조직 멘탈 케어, 팀 성과 코칭. 진단으로 시작해 성과 측정으로 끝나는 기업 코칭 프로그램." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/LINESeedKR/LINESeedKR.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { ink:'#0A1220', midnight:'#111827', slate2:'#374151', mist:'#E5E7EB', cream:'#FFF7ED' },
+      fontFamily: { serif:['LINE Seed KR','sans-serif'], sans:['LINE Seed KR','system-ui','sans-serif'] },
+      letterSpacing: { tightest:'-0.04em' },
+    }}}
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family:'LINE Seed KR',sans-serif; letter-spacing:-0.01em; word-break:keep-all; overflow-wrap:break-word; }
+    .font-serif { font-family:'LINE Seed KR',sans-serif; letter-spacing:-0.02em; font-weight:700 !important; }
+    ::selection { background:#0A1220; color:#FFF7ED; }
+    .reveal { opacity:0; transform:translateY(24px); transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+    .reveal.in { opacity:1; transform:none; }
+    .grid-lines { background-image:linear-gradient(rgba(229,231,235,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(229,231,235,.06) 1px,transparent 1px); background-size:56px 56px; }
+    .grid-lines-dark { background-image:linear-gradient(rgba(10,18,32,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(10,18,32,.045) 1px,transparent 1px); background-size:56px 56px; }
+    .eyebrow { letter-spacing:.22em; }
+    .nav-blur { backdrop-filter:saturate(180%) blur(14px); }
+    .img-duotone { filter:grayscale(35%) contrast(1.02); }
+    .dropdown { opacity:0; visibility:hidden; transform:translateY(6px); transition:all .2s ease; }
+    .group:hover .dropdown { opacity:1; visibility:visible; transform:none; }
+  </style>
+</head>
+
+<body class="bg-cream text-ink antialiased overflow-x-hidden">
+
+  <!-- ============ NAV ============ -->
+  <header id="nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+    <div class="nav-blur bg-cream/90 border-b border-ink/10" id="nav-bg-light">
+      <nav class="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2.5"><img src="images/logo-dark.png" alt="OmniView 옴니뷰" class="h-7 w-auto" /></a>
+        <div class="hidden lg:flex items-center gap-9 text-[14px] font-medium text-slate2">
+          <a href="about.html" class="hover:text-ink transition">About</a>
+          <div class="relative group">
+            <a href="coaching.html" class="inline-flex items-center gap-1 hover:text-ink transition">코칭 프로그램 <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg></a>
+            <div class="dropdown absolute left-0 top-full pt-3">
+              <div class="bg-white border border-mist rounded-xl shadow-xl shadow-ink/10 py-2 w-52">
+                <a href="coaching.html" class="block px-5 py-2.5 hover:bg-cream transition font-semibold text-ink">프로그램 소개</a>
+                <a href="leadership.html" class="block px-5 py-2.5 hover:bg-cream transition">리더십 개발</a>
+                <a href="mentalcare.html" class="block px-5 py-2.5 hover:bg-cream transition">조직 멘탈 케어</a>
+                <a href="career.html" class="block px-5 py-2.5 hover:bg-cream transition">커리어 코칭</a>
+                <a href="life.html" class="block px-5 py-2.5 hover:bg-cream transition">멘탈·라이프 코칭</a>
+              </div>
+            </div>
+          </div>
+          <a href="experts.html" class="hover:text-ink transition">코치진</a>
+          <a href="scope.html" class="hover:text-ink transition">진단·매칭</a>
+          <a href="contact.html" class="hover:text-ink transition">문의</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="contact.html" class="inline-flex items-center gap-1.5 text-[13px] font-semibold bg-ink text-cream px-5 py-2.5 rounded-full hover:bg-midnight transition">무료 진단 시작하기</a>
+          <button id="menu-btn" class="lg:hidden text-ink p-1" aria-label="메뉴"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+        </div>
+      </nav>
+    </div>
+    <div id="mobile-menu" class="lg:hidden hidden bg-cream border-t border-ink/10">
+      <div class="px-6 py-5 flex flex-col gap-4 text-slate2 text-sm"><a href="about.html">About</a><a href="coaching.html">코칭 프로그램</a><a href="leadership.html">— 리더십 개발</a><a href="mentalcare.html">— 조직 멘탈 케어</a><a href="career.html">— 커리어 코칭</a><a href="life.html">— 멘탈·라이프 코칭</a><a href="experts.html">코치진</a><a href="scope.html">진단·매칭</a><a href="contact.html">문의</a></div>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="relative bg-cream pt-40 pb-20 lg:pt-48 lg:pb-24 overflow-hidden">
+    <div class="absolute inset-0 grid-lines-dark"></div>
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+      <p class="reveal eyebrow text-[12px] uppercase font-semibold text-slate2/70 mb-6">OmniView for Business · 기업 코칭</p>
+      <h1 class="reveal font-serif text-4xl sm:text-5xl lg:text-6xl leading-[1.1] tracking-tightest font-medium max-w-3xl">성과가 흔들리는 조직은,<br>먼저 마음이 흔들리고 있습니다</h1>
+      <p class="reveal mt-7 text-lg text-slate2 max-w-2xl leading-relaxed">리더십·성과 코칭과 조직 멘탈 케어를 분리하지 않습니다. 옴니뷰는 조직을 360도로 진단하고, 데이터 위에서 변화를 설계하며, 결과를 숫자로 보고합니다.</p>
+      <div class="reveal mt-9 flex flex-col sm:flex-row gap-3.5">
+        <a href="contact.html" class="inline-flex justify-center items-center gap-2 bg-ink text-cream font-semibold px-8 py-4 rounded-full hover:bg-midnight transition text-[15px]">기업 도입 문의 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9h10M10 4l5 5-5 5"/></svg></a>
+        <a href="#programs" class="inline-flex justify-center items-center gap-2 border border-ink/25 text-ink font-medium px-8 py-4 rounded-full hover:bg-ink/5 transition text-[15px]">프로그램 살펴보기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 왜 통합 코칭인가 (신뢰 근거) ============ -->
+  <section class="bg-ink text-cream py-14 relative overflow-hidden">
+    <div class="absolute inset-0 grid-lines opacity-50"></div>
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-2 lg:grid-cols-4 gap-10">
+      <div class="reveal"><div class="font-serif text-4xl">진단 우선</div><p class="mt-2 text-[13px] text-mist/55">모든 프로그램은 조직 입체 진단(OmniScope)에서 시작</p></div>
+      <div class="reveal"><div class="font-serif text-4xl">전·후 측정</div><p class="mt-2 text-[13px] text-mist/55">시작과 종료 시점의 지표 변화를 리포트로 제출</p></div>
+      <div class="reveal"><div class="font-serif text-4xl">비밀 보장</div><p class="mt-2 text-[13px] text-mist/55">개인 세션 내용은 회사에 공유되지 않습니다</p></div>
+      <div class="reveal"><div class="font-serif text-4xl">검증 코치</div><p class="mt-2 text-[13px] text-mist/55">자격·경력·수퍼비전 3중 검증을 통과한 전문가</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 기업용 프로그램 안내 ============ -->
+  <section id="programs" class="bg-white py-24 lg:py-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-2xl reveal">
+        <p class="eyebrow text-[11px] uppercase font-semibold text-slate2 mb-4">기업용 프로그램</p>
+        <h2 class="font-serif text-4xl lg:text-5xl leading-[1.15] tracking-tight">두 개의 프로그램,<br>하나의 운영 원칙</h2>
+        <p class="mt-5 text-slate2 leading-relaxed">어떤 프로그램이든 <span class="text-ink font-semibold">진단 → 설계 → 실행 → 측정</span>의 동일한 원칙으로 운영됩니다. 팀 단위 코칭이나 임원 전담 코칭은 문의 시 맞춤 설계해 드립니다.</p>
+      </div>
+      <div class="mt-14 grid md:grid-cols-2 gap-6">
+        <a href="leadership.html" class="reveal group rounded-2xl bg-cream border border-mist overflow-hidden hover:border-slate2/40 hover:shadow-xl hover:shadow-ink/5 transition block">
+          <div class="relative h-52 overflow-hidden"><img src="images/ov-leadership.jpg" alt="리더십 개발" class="w-full h-full object-cover img-duotone group-hover:scale-105 transition-transform duration-500" /></div>
+          <div class="p-8">
+            <h3 class="font-serif text-2xl">리더십 개발</h3>
+            <p class="mt-3 text-slate2 text-[15px] leading-relaxed">2030 신임 리더가 역할에 빠르게 정착하도록, 다면 진단과 90일 코칭 여정으로 설계합니다.</p>
+            <span class="mt-5 inline-flex text-sm font-semibold text-ink group-hover:text-slate2 transition">프로그램 자세히 보기 →</span>
+          </div>
+        </a>
+        <a href="mentalcare.html" class="reveal group rounded-2xl bg-cream border border-mist overflow-hidden hover:border-slate2/40 hover:shadow-xl hover:shadow-ink/5 transition block">
+          <div class="relative h-52 overflow-hidden"><img src="images/ov-care.jpg" alt="조직 멘탈 케어" class="w-full h-full object-cover img-duotone group-hover:scale-105 transition-transform duration-500" /></div>
+          <div class="p-8">
+            <h3 class="font-serif text-2xl">조직 멘탈 케어</h3>
+            <p class="mt-3 text-slate2 text-[15px] leading-relaxed">정서·소진·몰입을 데이터로 진단하고 상시 케어로 연결해, 번아웃과 이탈을 선제적으로 관리합니다.</p>
+            <span class="mt-5 inline-flex text-sm font-semibold text-ink group-hover:text-slate2 transition">프로그램 자세히 보기 →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 도입 프로세스 ============ -->
+  <section class="bg-cream py-24 lg:py-32 border-y border-mist">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-2xl reveal">
+        <p class="eyebrow text-[11px] uppercase font-semibold text-slate2 mb-4">도입 프로세스</p>
+        <h2 class="font-serif text-4xl lg:text-5xl leading-[1.15] tracking-tight">도입부터 성과 보고까지,<br>4단계로 투명하게</h2>
+      </div>
+      <div class="mt-16 grid md:grid-cols-4 gap-6 relative">
+        <div class="hidden md:block absolute top-7 left-[12%] right-[12%] h-px bg-gradient-to-r from-transparent via-slate2/40 to-transparent"></div>
+        <div class="reveal relative"><div class="w-14 h-14 rounded-full bg-white border border-slate2/30 grid place-items-center font-serif text-ink text-lg relative z-10">01</div><h3 class="font-serif text-xl mt-6">진단</h3><p class="mt-3 text-slate2 leading-relaxed text-[14px]">OmniScope 조직 진단으로 리더십·웰빙·협업 지표의 현재 좌표를 측정합니다.</p></div>
+        <div class="reveal relative"><div class="w-14 h-14 rounded-full bg-white border border-slate2/30 grid place-items-center font-serif text-ink text-lg relative z-10">02</div><h3 class="font-serif text-xl mt-6">설계</h3><p class="mt-3 text-slate2 leading-relaxed text-[14px]">진단 결과를 근거로 대상·프로그램·기간을 설계하고 목표 지표를 합의합니다.</p></div>
+        <div class="reveal relative"><div class="w-14 h-14 rounded-full bg-white border border-slate2/30 grid place-items-center font-serif text-ink text-lg relative z-10">03</div><h3 class="font-serif text-xl mt-6">실행</h3><p class="mt-3 text-slate2 leading-relaxed text-[14px]">OmniMatch로 최적의 전문가를 배정하고, 코칭·상담·워크숍을 실행합니다.</p></div>
+        <div class="reveal relative"><div class="w-14 h-14 rounded-full bg-white border border-slate2/30 grid place-items-center font-serif text-ink text-lg relative z-10">04</div><h3 class="font-serif text-xl mt-6">측정·보고</h3><p class="mt-3 text-slate2 leading-relaxed text-[14px]">종료 시점에 동일 지표를 재측정하고, 전·후 변화를 리포트로 보고합니다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="bg-white py-24 lg:py-32">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+      <div class="reveal"><p class="eyebrow text-[11px] uppercase font-semibold text-slate2 mb-4">자주 묻는 질문</p>
+      <h2 class="font-serif text-4xl leading-[1.15] tracking-tight">도입 전, 가장 많이 받는 질문</h2></div>
+      <div class="mt-12 space-y-4">
+        <details class="reveal group rounded-2xl bg-cream border border-mist p-6 open:shadow-lg open:shadow-ink/5 transition"><summary class="cursor-pointer font-semibold text-[15px] flex justify-between items-center list-none">구성원 개인의 상담 내용이 회사에 공유되나요?<span class="text-slate2 group-open:rotate-45 transition-transform text-xl leading-none">+</span></summary><p class="mt-4 text-slate2 text-[15px] leading-relaxed">공유되지 않습니다. 개인 세션 내용은 상담 윤리와 계약에 따라 철저히 비밀이 보장되며, 회사에는 최소 인원 기준을 충족한 익명화된 조직 단위 지표만 제공됩니다.</p></details>
+        <details class="reveal group rounded-2xl bg-cream border border-mist p-6 open:shadow-lg open:shadow-ink/5 transition"><summary class="cursor-pointer font-semibold text-[15px] flex justify-between items-center list-none">효과를 어떻게 증명하나요?<span class="text-slate2 group-open:rotate-45 transition-transform text-xl leading-none">+</span></summary><p class="mt-4 text-slate2 text-[15px] leading-relaxed">시작 시점에 목표 지표를 합의하고, 종료 시점에 동일한 도구로 재측정합니다. 리더십 다면 평가, 웰빙·몰입 지표, 협업 지표의 전·후 변화가 리포트로 제출됩니다.</p></details>
+        <details class="reveal group rounded-2xl bg-cream border border-mist p-6 open:shadow-lg open:shadow-ink/5 transition"><summary class="cursor-pointer font-semibold text-[15px] flex justify-between items-center list-none">코치는 어떻게 검증하나요?<span class="text-slate2 group-open:rotate-45 transition-transform text-xl leading-none">+</span></summary><p class="mt-4 text-slate2 text-[15px] leading-relaxed">자격(상담·코칭 공인 자격), 경력(기업 코칭 실적), 수퍼비전(정기 사례 검토)의 3중 기준을 통과한 전문가만 배정합니다. 배정 후에도 만족도가 기준에 미달하면 교체를 보장합니다.</p></details>
+        <details class="reveal group rounded-2xl bg-cream border border-mist p-6 open:shadow-lg open:shadow-ink/5 transition"><summary class="cursor-pointer font-semibold text-[15px] flex justify-between items-center list-none">소규모 팀도 도입할 수 있나요?<span class="text-slate2 group-open:rotate-45 transition-transform text-xl leading-none">+</span></summary><p class="mt-4 text-slate2 text-[15px] leading-relaxed">가능합니다. 10인 미만 조직은 팀 성과 코칭 단일 프로그램부터, 성장 단계의 스타트업은 리더십 개발과 멘탈 케어를 묶은 경량 패키지로 시작하는 것을 권장합니다.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="bg-ink text-cream py-24 relative overflow-hidden">
+    <div class="absolute inset-0 grid-lines opacity-50"></div>
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 class="font-serif text-4xl lg:text-[2.6rem] leading-[1.15] tracking-tight">우리 조직, 지금 어느 각도까지 보고 계신가요?</h2>
+        <p class="mt-5 text-mist/65 leading-relaxed">무료 조직 진단 상담으로 시작하세요. 현재 상태를 함께 확인한 뒤 도입 여부를 결정하셔도 늦지 않습니다.</p>
+      </div>
+      <div class="lg:text-right">
+        <a href="contact.html" class="inline-flex items-center gap-2 bg-cream text-ink font-semibold px-8 py-4 rounded-full hover:bg-white transition">기업 도입 문의 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9h10M10 4l5 5-5 5"/></svg></a>
+        <p class="mt-4 text-[13px] text-mist/50">영업일 기준 1일 내 회신 · 도입 전 무료 진단 상담</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="bg-midnight text-cream pt-20 pb-10 border-t border-mist/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-12 pb-14 border-b border-mist/10">
+        <div class="lg:col-span-5">
+          <div class="flex items-center gap-2.5 mb-5"><img src="images/logo-light.png" alt="OmniView 옴니뷰" class="h-8 w-auto" /></div>
+          <p class="text-mist/55 text-sm leading-relaxed max-w-sm">내면(마음)과 외면(커리어·삶·성과)을 하나의 시야에 담아, 데이터라는 근거 위에서 성장을 설계하는 360° 통합 코칭.</p>
+        </div>
+        <div class="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 text-sm">
+          <div><h5 class="text-mist/40 text-[12px] eyebrow uppercase mb-4">코칭 프로그램</h5><ul class="space-y-2.5 text-mist/65"><li><a href="leadership.html" class="hover:text-cream transition">리더십 개발</a></li><li><a href="mentalcare.html" class="hover:text-cream transition">조직 멘탈 케어</a></li><li><a href="career.html" class="hover:text-cream transition">커리어 코칭</a></li><li><a href="life.html" class="hover:text-cream transition">멘탈·라이프 코칭</a></li></ul></div>
+          <div><h5 class="text-mist/40 text-[12px] eyebrow uppercase mb-4">브랜드</h5><ul class="space-y-2.5 text-mist/65"><li><a href="about.html" class="hover:text-cream transition">About</a></li><li><a href="experts.html" class="hover:text-cream transition">코치진</a></li><li><a href="scope.html" class="hover:text-cream transition">진단·매칭</a></li><li><a href="business.html" class="hover:text-cream transition">기업 도입 안내</a></li><li><a href="personal.html" class="hover:text-cream transition">개인 플랜·요금</a></li></ul></div>
+          <div><h5 class="text-mist/40 text-[12px] eyebrow uppercase mb-4">문의</h5><ul class="space-y-2.5 text-mist/65"><li>omniview12@gmail.com</li><li>Seoul, Republic of Korea</li><li><a href="contact.html" class="text-cream hover:text-white transition">무료 진단 시작하기 →</a></li></ul></div>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col sm:flex-row justify-between gap-4 text-[12px] text-mist/40"><p>© 2026 OmniView. All rights reserved.</p><p class="font-serif italic text-mist/50">한 각도가 아니라, 모든 각도에서.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/site.js"></script>
+</body>
+</html>

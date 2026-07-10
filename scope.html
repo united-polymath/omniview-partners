@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko" translate="no" class="notranslate">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>진단·매칭 — OmniScope & OmniMatch | OmniView 옴니뷰</title>
+  <meta name="description" content="입체 진단 OmniScope와 데이터 기반 전문가 매칭 OmniMatch. 모든 각도에서 본다를 데이터로 증명합니다." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/LINESeedKR/LINESeedKR.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { ink:'#0A1220', midnight:'#111827', slate2:'#374151', mist:'#E5E7EB', cream:'#FFF7ED' },
+      fontFamily: { serif:['LINE Seed KR','sans-serif'], sans:['LINE Seed KR','system-ui','sans-serif'] },
+      letterSpacing: { tightest:'-0.04em' },
+    }}}
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family:'LINE Seed KR',sans-serif; letter-spacing:-0.01em; word-break:keep-all; overflow-wrap:break-word; }
+    .font-serif { font-family:'LINE Seed KR',sans-serif; letter-spacing:-0.02em; font-weight:700 !important; }
+    ::selection { background:#0A1220; color:#FFF7ED; }
+    .reveal { opacity:0; transform:translateY(24px); transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+    .reveal.in { opacity:1; transform:none; }
+    .grid-lines { background-image:linear-gradient(rgba(229,231,235,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(229,231,235,.06) 1px,transparent 1px); background-size:56px 56px; }
+    .grid-lines-dark { background-image:linear-gradient(rgba(10,18,32,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(10,18,32,.045) 1px,transparent 1px); background-size:56px 56px; }
+    .eyebrow { letter-spacing:.22em; }
+    .nav-blur { backdrop-filter:saturate(180%) blur(14px); }
+    .img-duotone { filter:grayscale(35%) contrast(1.02); }
+    .dropdown { opacity:0; visibility:hidden; transform:translateY(6px); transition:all .2s ease; }
+    .group:hover .dropdown { opacity:1; visibility:visible; transform:none; }
+  </style>
+</head>
+
+<body class="bg-cream text-ink antialiased overflow-x-hidden">
+
+  <!-- ============ NAV ============ -->
+  <header id="nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+    <div class="nav-blur bg-cream/90 border-b border-ink/10" id="nav-bg-light">
+      <nav class="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2.5"><img src="images/logo-dark.png" alt="OmniView 옴니뷰" class="h-7 w-auto" /></a>
+        <div class="hidden lg:flex items-center gap-9 text-[14px] font-medium text-slate2">
+          <a href="about.html" class="hover:text-ink transition">About</a>
+          <div class="relative group">
+            <a href="coaching.html" class="inline-flex items-center gap-1 hover:text-ink transition">코칭 프로그램 <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg></a>
+            <div class="dropdown absolute left-0 top-full pt-3">
+              <div class="bg-white border border-mist rounded-xl shadow-xl shadow-ink/10 py-2 w-52">
+                <a href="coaching.html" class="block px-5 py-2.5 hover:bg-cream transition font-semibold text-ink">프로그램 소개</a>
+                <a href="leadership.html" class="block px-5 py-2.5 hover:bg-cream transition">리더십 개발</a>
+                <a href="mentalcare.html" class="block px-5 py-2.5 hover:bg-cream transition">조직 멘탈 케어</a>
+                <a href="career.html" class="block px-5 py-2.5 hover:bg-cream transition">커리어 코칭</a>
+                <a href="life.html" class="block px-5 py-2.5 hover:bg-cream transition">멘탈·라이프 코칭</a>
+              </div>
+            </div>
+          </div>
+          <a href="experts.html" class="hover:text-ink transition">코치진</a>
+          <a href="scope.html" class="hover:text-ink transition">진단·매칭</a>
+          <a href="contact.html" class="hover:text-ink transition">문의</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="contact.html" class="inline-flex items-center gap-1.5 text-[13px] font-semibold bg-ink text-cream px-5 py-2.5 rounded-full hover:bg-midnight transition">무료 진단 시작하기</a>
+          <button id="menu-btn" class="lg:hidden text-ink p-1" aria-label="메뉴"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+        </div>
+      </nav>
+    </div>
+    <div id="mobile-menu" class="lg:hidden hidden bg-cream border-t border-ink/10">
+      <div class="px-6 py-5 flex flex-col gap-4 text-slate2 text-sm"><a href="about.html">About</a><a href="coaching.html">코칭 프로그램</a><a href="leadership.html">— 리더십 개발</a><a href="mentalcare.html">— 조직 멘탈 케어</a><a href="career.html">— 커리어 코칭</a><a href="life.html">— 멘탈·라이프 코칭</a><a href="experts.html">코치진</a><a href="scope.html">진단·매칭</a><a href="contact.html">문의</a></div>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="relative bg-cream pt-40 pb-20 lg:pt-48 lg:pb-24 overflow-hidden">
+    <div class="absolute inset-0 grid-lines-dark"></div>
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+      <p class="reveal eyebrow text-[12px] uppercase font-semibold text-slate2/70 mb-6">OmniScope &amp; OmniMatch · 진단과 매칭</p>
+      <h1 class="reveal font-serif text-4xl sm:text-5xl lg:text-6xl leading-[1.1] tracking-tightest font-medium max-w-3xl">"모든 각도에서 본다"를<br>데이터로 증명합니다</h1>
+      <p class="reveal mt-7 text-lg text-slate2 max-w-2xl leading-relaxed">옴니뷰의 모든 코칭은 입체 진단(OmniScope)에서 시작해, 근거 기반 매칭(OmniMatch)으로 이어지고, 성과 측정으로 끝납니다.</p>
+      <div class="reveal mt-9 flex flex-col sm:flex-row gap-3.5">
+        <a href="contact.html" class="inline-flex justify-center items-center gap-2 bg-ink text-cream font-semibold px-8 py-4 rounded-full hover:bg-midnight transition text-[15px]">무료 진단 시작하기 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9h10M10 4l5 5-5 5"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OmniScope ============ -->
+  <section id="omniscope" class="bg-white py-24 lg:py-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-14 items-center">
+        <div class="lg:col-span-6 reveal">
+          <p class="eyebrow text-[11px] uppercase font-semibold text-slate2 mb-4">OmniScope · 입체 진단</p>
+          <h2 class="font-serif text-4xl lg:text-5xl leading-[1.15] tracking-tight">코칭 전에, 먼저 잽니다</h2>
+          <p class="mt-6 text-slate2 leading-relaxed">한 번의 설문이 아니라, 세 개의 시선으로 교차 측정합니다. 내면(정서·소진·관계)과 실질(커리어·리더십·습관)을 40개 이상의 지표로 담아, 하나의 입체 리포트로 제공합니다.</p>
+          <div class="mt-8 space-y-4">
+            <div class="flex gap-4 items-start"><div class="w-9 h-9 shrink-0 rounded-full bg-cream border border-mist grid place-items-center font-serif text-sm">1</div><div><h4 class="font-semibold">진단 (약 12분)</h4><p class="text-slate2 text-[14px] mt-0.5">내면·실질·근거 세 영역을 온라인으로 측정합니다.</p></div></div>
+            <div class="flex gap-4 items-start"><div class="w-9 h-9 shrink-0 rounded-full bg-cream border border-mist grid place-items-center font-serif text-sm">2</div><div><h4 class="font-semibold">리포트</h4><p class="text-slate2 text-[14px] mt-0.5">현재 좌표와 사각지대를 시각화한 입체 리포트를 받습니다.</p></div></div>
+            <div class="flex gap-4 items-start"><div class="w-9 h-9 shrink-0 rounded-full bg-ink text-cream grid place-items-center font-serif text-sm">3</div><div><h4 class="font-semibold">1:1 해석 세션</h4><p class="text-slate2 text-[14px] mt-0.5">전문가가 결과를 직접 해석하고 다음 단계를 제안합니다.</p></div></div>
+          </div>
+        </div>
+        <div class="lg:col-span-6 reveal">
+          <div class="relative rounded-2xl overflow-hidden border border-mist shadow-xl shadow-ink/5">
+            <img src="images/stock-analytics.jpg" alt="OmniScope 입체 진단 리포트" class="w-full h-[420px] object-cover" />
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-ink/80 to-transparent p-6">
+              <p class="text-cream text-sm font-medium">내면 × 실질 × 근거, 하나의 리포트로</p>
+              <p class="text-mist/60 text-[13px] mt-0.5">40+ 지표 · 분기별 재측정으로 변화 추적</p>
+            </div>
+          </div>
+          <div class="mt-6 grid grid-cols-3 gap-4">
+            <div class="rounded-xl bg-cream border border-mist p-4 text-center"><div class="font-serif text-2xl">3</div><p class="mt-1 text-[12px] text-slate2">측정 시선</p></div>
+            <div class="rounded-xl bg-cream border border-mist p-4 text-center"><div class="font-serif text-2xl">40+</div><p class="mt-1 text-[12px] text-slate2">성장 지표</p></div>
+            <div class="rounded-xl bg-cream border border-mist p-4 text-center"><div class="font-serif text-2xl">12분</div><p class="mt-1 text-[12px] text-slate2">소요 시간</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OmniMatch ============ -->
+  <section id="omnimatch" class="bg-ink text-cream py-24 lg:py-32 relative overflow-hidden">
+    <div class="absolute inset-0 grid-lines opacity-50"></div>
+    <div class="absolute -top-40 -right-20 w-[520px] h-[520px] rounded-full bg-slate2/30 blur-[150px]"></div>
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-14 items-center">
+        <div class="lg:col-span-6 reveal order-2 lg:order-1">
+          <div class="rounded-2xl overflow-hidden border border-mist/15 shadow-2xl shadow-black/40"><img src="images/ov-match.jpg" alt="OmniMatch 전문가 매칭" class="w-full h-[420px] object-cover img-duotone" /></div>
+          <div class="mt-6 rounded-2xl bg-white/[0.04] border border-mist/10 p-6">
+            <div class="flex items-center justify-between mb-4"><span class="text-[10px] eyebrow uppercase text-mist/50">Matching Report</span><span class="text-[10px] text-cream font-medium">근거 기반 추천</span></div>
+            <div class="space-y-2.5">
+              <div data-bar="94"><div class="flex justify-between text-[11px] mb-1"><span class="text-mist/65">전문 분야 적합도</span><span class="text-cream font-semibold">94</span></div><div class="h-1 rounded-full bg-white/10 overflow-hidden"><div class="bar h-full rounded-full bg-gradient-to-r from-slate2 to-mist" style="width:0%"></div></div></div>
+              <div data-bar="89"><div class="flex justify-between text-[11px] mb-1"><span class="text-mist/65">코칭 스타일 합</span><span class="text-cream font-semibold">89</span></div><div class="h-1 rounded-full bg-white/10 overflow-hidden"><div class="bar h-full rounded-full bg-gradient-to-r from-slate2 to-mist" style="width:0%"></div></div></div>
+              <div data-bar="92"><div class="flex justify-between text-[11px] mb-1"><span class="text-mist/65">목표 정렬도</span><span class="text-cream font-semibold">92</span></div><div class="h-1 rounded-full bg-white/10 overflow-hidden"><div class="bar h-full rounded-full bg-gradient-to-r from-slate2 to-mist" style="width:0%"></div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-6 reveal order-1 lg:order-2">
+          <p class="eyebrow text-[11px] uppercase font-semibold text-mist/70 mb-4">OmniMatch · 전문가 매칭</p>
+          <h2 class="font-serif text-4xl lg:text-5xl leading-[1.15] tracking-tight">가장 적합한 전문가를,<br>근거로 연결합니다</h2>
+          <p class="mt-6 text-mist/60 leading-relaxed">지인 추천도, 프로필 사진의 인상도 아닙니다. OmniScope 진단 결과와 3중 검증된 코치의 전문 분야·스타일 데이터를 대조해, 왜 이 전문가인지 근거와 함께 추천합니다.</p>
+          <div class="mt-8 space-y-4">
+            <div class="rounded-xl bg-white/[0.04] border border-mist/10 p-5"><h4 class="font-semibold text-cream">추천 이유를 공개합니다</h4><p class="text-sm text-mist/55 mt-1">적합도 점수와 추천 근거가 매칭 리포트에 함께 제공됩니다.</p></div>
+            <div class="rounded-xl bg-white/[0.04] border border-mist/10 p-5"><h4 class="font-semibold text-cream">맞지 않으면 무료 교체</h4><p class="text-sm text-mist/55 mt-1">첫 세션 후 언제든, 횟수 제한 없이 교체할 수 있습니다.</p></div>
+            <div class="rounded-xl bg-white/[0.04] border border-mist/10 p-5"><h4 class="font-semibold text-cream">매칭 만족도 98%</h4><p class="text-sm text-mist/55 mt-1">데이터에 근거한 매칭은 결과로 증명됩니다.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 데이터 보안 (신뢰) ============ -->
+  <section class="bg-cream py-24 lg:py-32 border-y border-mist">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-2xl reveal">
+        <p class="eyebrow text-[11px] uppercase font-semibold text-slate2 mb-4">데이터 보호</p>
+        <h2 class="font-serif text-4xl lg:text-5xl leading-[1.15] tracking-tight">가장 민감한 데이터를<br>다룬다는 책임</h2>
+      </div>
+      <div class="mt-14 grid md:grid-cols-3 gap-6">
+        <div class="reveal rounded-2xl bg-white border border-mist p-8"><div class="w-11 h-11 rounded-xl bg-cream border border-mist grid place-items-center mb-5"><svg width="22" height="22" fill="none" stroke="#374151" stroke-width="1.4"><rect x="4" y="9" width="14" height="9" rx="2"/><path d="M7 9V6a4 4 0 018 0v3"/></svg></div><h3 class="font-serif text-xl">암호화 보관</h3><p class="mt-3 text-slate2 text-[14px] leading-relaxed">진단 결과와 세션 기록은 전 구간 암호화되어 보관됩니다.</p></div>
+        <div class="reveal rounded-2xl bg-white border border-mist p-8"><div class="w-11 h-11 rounded-xl bg-cream border border-mist grid place-items-center mb-5"><svg width="22" height="22" fill="none" stroke="#374151" stroke-width="1.4"><circle cx="11" cy="7" r="4"/><path d="M3 20c0-4 3.6-6 8-6s8 2 8 6"/></svg></div><h3 class="font-serif text-xl">본인만 열람</h3><p class="mt-3 text-slate2 text-[14px] leading-relaxed">개인 리포트는 본인과 담당 전문가만 볼 수 있습니다. 기업 도입 시에도 개인 데이터는 회사에 공유되지 않습니다.</p></div>
+        <div class="reveal rounded-2xl bg-white border border-mist p-8"><div class="w-11 h-11 rounded-xl bg-cream border border-mist grid place-items-center mb-5"><svg width="22" height="22" fill="none" stroke="#374151" stroke-width="1.4"><path d="M11 2l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V5l7-3z"/><path d="M8 11l2 2 4-4"/></svg></div><h3 class="font-serif text-xl">법령 준수</h3><p class="mt-3 text-slate2 text-[14px] leading-relaxed">개인정보보호법과 상담 윤리 규정을 준수하며, 요청 시 데이터는 즉시 파기됩니다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="bg-white py-24">
+    <div class="max-w-5xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="reveal font-serif text-4xl lg:text-[2.6rem] leading-[1.15] tracking-tight">먼저, 지금의 좌표부터 확인해 보세요</h2>
+      <p class="reveal mt-5 text-slate2 leading-relaxed">무료 입체 진단 — 약 12분, 카드 등록 없이. 결과는 전문가가 1:1로 해석해 드립니다.</p>
+      <div class="reveal mt-8 flex flex-col sm:flex-row justify-center gap-3.5">
+        <a href="contact.html" class="inline-flex justify-center items-center gap-2 bg-ink text-cream font-semibold px-8 py-4 rounded-full hover:bg-midnight transition">무료 진단 받기 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9h10M10 4l5 5-5 5"/></svg></a>
+        <a href="experts.html" class="inline-flex justify-center items-center gap-2 border border-ink/25 text-ink font-medium px-8 py-4 rounded-full hover:bg-ink/5 transition">코치진 보기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="bg-midnight text-cream pt-20 pb-10 border-t border-mist/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-12 pb-14 border-b border-mist/10">
+        <div class="lg:col-span-5">
+          <div class="flex items-center gap-2.5 mb-5"><img src="images/logo-light.png" alt="OmniView 옴니뷰" class="h-8 w-auto" /></div>
+          <p class="text-mist/55 text-sm leading-relaxed max-w-sm">내면(마음)과 외면(커리어·삶·성과)을 하나의 시야에 담아, 데이터라는 근거 위에서 성장을 설계하는 360° 통합 코칭.</p>
+        </div>
+        <div class="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 text-sm">
+          <div><h5 class="text-mist/40 text-[12px] eyebrow uppercase mb-4">코칭 프로그램</h5><ul class="space-y-2.5 text-mist/65"><li><a href="leadership.html" class="hover:text-cream transition">리더십 개발</a></li><li><a href="mentalcare.html" class="hover:text-cream transition">조직 멘탈 케어</a></li><li><a href="career.html" class="hover:text-cream transition">커리어 코칭</a></li><li><a href="life.html" class="hover:text-cream transition">멘탈·라이프 코칭</a></li></ul></div>
+          <div><h5 class="text-mist/40 text-[12px] eyebrow uppercase mb-4">브랜드</h5><ul class="space-y-2.5 text-mist/65"><li><a href="about.html" class="hover:text-cream transition">About</a></li><li><a href="experts.html" class="hover:text-cream transition">코치진</a></li><li><a href="scope.html" class="hover:text-cream transition">진단·매칭</a></li><li><a href="business.html" class="hover:text-cream transition">기업 도입 안내</a></li><li><a href="personal.html" class="hover:text-cream transition">개인 플랜·요금</a></li></ul></div>
+          <div><h5 class="text-mist/40 text-[12px] eyebrow uppercase mb-4">문의</h5><ul class="space-y-2.5 text-mist/65"><li>omniview12@gmail.com</li><li>Seoul, Republic of Korea</li><li><a href="contact.html" class="text-cream hover:text-white transition">무료 진단 시작하기 →</a></li></ul></div>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col sm:flex-row justify-between gap-4 text-[12px] text-mist/40"><p>© 2026 OmniView. All rights reserved.</p><p class="font-serif italic text-mist/50">한 각도가 아니라, 모든 각도에서.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/site.js"></script>
+</body>
+</html>
